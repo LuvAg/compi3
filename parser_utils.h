@@ -238,7 +238,7 @@ static inline void print_error_diagnostics() {
     printf("   • Missing type in declaration\n");
     printf("     → Error: 'bro' keyword must be followed by type (num, str, bool, nalla)\n");
     printf("   • Invalid type name\n");
-    printf("     → Error: Unrecognized type '%s' (expected num, str, bool, or nalla)\n");
+    printf("     → Error: Unrecognized type '%%s' (expected num, str, bool, or nalla)\n");
     printf("   • Missing variable name\n");
     printf("     → Error: Variable declaration requires identifier\n");
     printf("   • Missing initialization value\n");
@@ -249,7 +249,7 @@ static inline void print_error_diagnostics() {
     printf("   • Unmatched parentheses\n");
     printf("     → Error at line N: expecting )\n");
     printf("   • Invalid operators\n");
-    printf("     → Error at line N: unexpected operator '%s'\n");
+    printf("     → Error at line N: unexpected operator '%%s'\n");
     printf("   • Empty expressions\n");
     printf("     → Error: expecting expression\n");
     printf("   • Function-like calls (not supported)\n");
@@ -262,7 +262,7 @@ static inline void print_error_diagnostics() {
     printf("   • Missing block/statement body\n");
     printf("     → 'agarbro (cond)' requires { ... }\n");
     printf("   • Invalid keywords\n");
-    printf("     → Error at line N: unexpected keyword '%s'\n");
+    printf("     → Error at line N: unexpected keyword '%%s'\n");
     printf("   • Unreachable break/continue\n");
     printf("     → Warning: 'baskarbro'/'agladehbro' outside loop context\n\n");
 

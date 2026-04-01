@@ -1,0 +1,33 @@
+digraph DerivationTree {
+  rankdir=TB;
+  node [shape=box, style=rounded, fontname="Helvetica"];
+  n0 [label="PROGRAM"];
+  n1 [label="STATEMENT"];
+  n2 [label="STATEMENT"];
+  n3 [label="STATEMENT"];
+  n4 [label="PRINT"];
+  n5 [label="ID\n[PI]"];
+  n6 [label="ID\n[MSG]"];
+  n7 [label="CONSTANT_DECL"];
+  n8 [label="STR\n[\"hello\"]"];
+  n9 [label="ID\n[MSG]"];
+  n10 [label="TYPE\n[str]"];
+  n11 [label="CONSTANT_DECL"];
+  n12 [label="NUM\n[3]"];
+  n13 [label="ID\n[PI]"];
+  n14 [label="TYPE\n[num]"];
+  n0 -> n1;
+  n0 -> n2;
+  n0 -> n3;
+  n3 -> n4;
+  n4 -> n5;
+  n4 -> n6;
+  n3 -> n7;
+  n7 -> n8;
+  n7 -> n9;
+  n7 -> n10;
+  n3 -> n11;
+  n11 -> n12;
+  n11 -> n13;
+  n11 -> n14;
+}

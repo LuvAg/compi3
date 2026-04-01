@@ -1,5 +1,10 @@
 # CS327: LALR(1) Parser for Brolang - ASSIGNMENT COMPLETE ✓
 
+## Primary Submission Document
+
+All final assignment details for Parts 1-6 are in ASSIGNMENT_REPORT.md.
+Please treat ASSIGNMENT_REPORT.md as the primary and complete submission file.
+
 ## Overview
 
 The LALR(1) parser for the Brolang language has been **successfully completed** with all 6 assignment parts fully implemented and tested.

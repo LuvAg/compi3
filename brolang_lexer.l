@@ -8,6 +8,8 @@ int line_num = 1;
 
 %}
 
+%option noinput nounput
+
 %%
 
 hibro { return HIBRO; }
