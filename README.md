@@ -1,4 +1,4 @@
-# CS327: LALR(1) Parser for Brolang - ASSIGNMENT COMPLETE ✓
+# CS327: LALR(1) Parser for Brolang - ASSIGNMENT COMPLETE 
 
 ## Primary Submission Document
 
