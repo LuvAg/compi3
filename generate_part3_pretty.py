@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""Generate a cleaner Part 3 derivation tree report for all valid test cases."""
 
 from __future__ import annotations
 
@@ -30,7 +28,7 @@ def extract_part3_block(parser_output: str) -> list[str]:
         if in_block:
             block.append(line.rstrip("\n"))
 
-    # Keep only actual tree lines and remove separator lines.
+
     tree_lines = [ln for ln in block if "└─" in ln]
     return tree_lines
 
@@ -62,7 +60,7 @@ def run_parser(parser_bin: str, testcase: str) -> str:
 
 
 def build_graph_model_from_postorder(tree_lines: list[str]) -> tuple[list[str], list[tuple[int, int]]]:
-    """Build node labels and directed edges from post-order lines with depth metadata."""
+    
     if not tree_lines:
         return ["No tree nodes found"], []
 

@@ -37,21 +37,18 @@
 
 #ifndef YY_YY_BROLANG_PARSER_TAB_H_INCLUDED
 # define YY_YY_BROLANG_PARSER_TAB_H_INCLUDED
-/* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
 #endif
 #if YYDEBUG
 extern int yydebug;
 #endif
-/* "%code requires" blocks.  */
 #line 1 "brolang_parser.y"
 
 #include "parser_utils.h"
 
 #line 53 "brolang_parser.tab.h"
 
-/* Token kinds.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
   enum yytokentype
@@ -107,7 +104,6 @@ extern int yydebug;
   typedef enum yytokentype yytoken_kind_t;
 #endif
 
-/* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
@@ -131,4 +127,4 @@ extern YYSTYPE yylval;
 int yyparse (void);
 
 
-#endif /* !YY_YY_BROLANG_PARSER_TAB_H_INCLUDED  */
+#endif 

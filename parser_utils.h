@@ -6,7 +6,7 @@
 #include <string.h>
 #include <stdarg.h>
 
-/* Node types for parse tree */
+
 typedef enum {
     NODE_PROGRAM,
     NODE_STMT,
@@ -33,7 +33,7 @@ typedef enum {
     NODE_OP
 } NodeType;
 
-/* Parse Tree Node Structure */
+
 typedef struct ParseTreeNode {
     NodeType type;
     char* value;
@@ -43,15 +43,15 @@ typedef struct ParseTreeNode {
     int line_num;
 } ParseTreeNode;
 
-/* Parsing Table Entry Structure */
+
 typedef struct {
     int state;
     int symbol;
-    int action; /* 1: shift, 2: reduce, 3: accept, 0: error */
+    int action;
     int target;
 } parse_table_entry;
 
-/* String representations for node types */
+
 static inline const char* node_type_string(NodeType type) {
     switch (type) {
         case NODE_PROGRAM: return "PROGRAM";
@@ -81,7 +81,7 @@ static inline const char* node_type_string(NodeType type) {
     }
 }
 
-/* Create a parse tree leaf node */
+
 static inline ParseTreeNode* make_leaf_node(NodeType type, const char* value) {
     ParseTreeNode* node = (ParseTreeNode*)malloc(sizeof(ParseTreeNode));
     node->type = type;
@@ -92,7 +92,6 @@ static inline ParseTreeNode* make_leaf_node(NodeType type, const char* value) {
     return node;
 }
 
-/* Create a parse tree node with children */
 static inline ParseTreeNode* make_node(NodeType type, int num_children, ...) {
     ParseTreeNode* node = (ParseTreeNode*)malloc(sizeof(ParseTreeNode));
     node->type = type;
@@ -117,21 +116,19 @@ static inline ParseTreeNode* make_node(NodeType type, int num_children, ...) {
     return node;
 }
 
-/* Print tree in reverse order (post-order traversal) */
+
 static inline void print_tree_reverse(ParseTreeNode* node, int depth) {
     if (!node) return;
 
-    /* Print children first (reverse/post-order) */
     for (int i = 0; i < node->num_children; i++) {
         print_tree_reverse(node->children[i], depth + 1);
     }
 
-    /* Print next siblings */
     if (node->next) {
         print_tree_reverse(node->next, depth);
     }
 
-    /* Print current node */
+ 
     for (int i = 0; i < depth; i++) printf("  ");
     printf("└─ %s", node_type_string(node->type));
 
@@ -141,7 +138,7 @@ static inline void print_tree_reverse(ParseTreeNode* node, int depth) {
     printf("\n");
 }
 
-/* Free parse tree (depth-first) */
+
 static inline void free_tree(ParseTreeNode* node) {
     if (!node) return;
 
@@ -156,7 +153,7 @@ static inline void free_tree(ParseTreeNode* node) {
     free(node);
 }
 
-/* Part 5: Error Diagnostics */
+
 static inline const char* token_name(int token_id) {
     switch (token_id) {
         case 1: return "HIBRO";
@@ -325,7 +322,6 @@ static inline void print_error_diagnostics() {
     printf("═══════════════════════════════════════════════════════════════════════════════════════════════════════════════\n\n");
 }
 
-/* Print parsing table in matrix format - COMPLETE */
 static inline void print_parsing_table() {
     printf("╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗\n");
     printf("║                    COMPLETE LALR(1) PARSING TABLE FOR BROLANG LANGUAGE                                     ║\n");
@@ -513,7 +509,7 @@ static inline void print_parsing_table() {
     printf("═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════\n\n");
 }
 
-/* LALR(1) Conflict Analysis */
+
 static inline void analyze_conflicts() {
     printf("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════╗\n");
     printf("║                    [PART 1] LALR(1) AUTOMATON CONSTRUCTION                                               ║\n");

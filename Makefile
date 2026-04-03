@@ -4,20 +4,18 @@ YACC = bison
 CFLAGS = -Wall -Wextra -g -O2
 LDFLAGS = -lm
 
-# Target executable
 TARGET = brolang_parser
 
-# Source files
+
 LEXER_SOURCE = brolang_lexer.l
 PARSER_SOURCE = brolang_parser.y
 SUPPORTS = parser_utils.h
 
-# Generated files
 LEXER_GEN = lex.yy.c
 PARSER_GEN_H = brolang_parser.tab.h
 PARSER_GEN_C = brolang_parser.tab.c
 
-# Object files
+
 LEXER_OBJ = lex.yy.o
 PARSER_OBJ = brolang_parser.tab.o
 

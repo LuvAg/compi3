@@ -1,6 +1,5 @@
 # Part 3 - Reverse Derivation Trees (Improved Representation)
 
-Generated on: 2026-04-01 17:36:04
 
 Graph images: PNG files are available in part3_graphs/.
 

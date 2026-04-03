@@ -4,15 +4,12 @@
 **Course:** CS327 Compilers  
 **Instructor:** Shouvick Mondal  
 **Semester:** January-May 2026  
-**Maximum Marks:** 30 (including bonus: 10)  
-**Deadline:** March 31, 2026, 23:59:59 IST
 
 **Group Members:**
 - Rachit Mehta (23110261)
 - Luv Agarwal (23110189)
 - Prateek Takshak (23110256)
 
-**Submission Date:** March 31, 2026
 
 ---
 
@@ -38,12 +35,12 @@ This report demonstrates:
 ## Executive Summary
 
 This assignment implements a complete LALR(1) parser for the **Brolang** programming language with:
-- ✓ **Part 1:** Full LALR(1) automaton construction (101 states)
-- ✓ **Part 2:** Conflict identification and resolution (0 conflicts)
-- ✓ **Part 3:** Reverse derivation tree display (post-order traversal)
-- ✓ **Part 4:** Detailed LALR(1) parsing table in matrix format
-- ✓ **Part 5:** Comprehensive error diagnostics system
-- ✓ **Part 6:** Additional implementation details and analysis
+- **Part 1:** Full LALR(1) automaton construction (101 states)
+- **Part 2:** Conflict identification and resolution (0 conflicts)
+- **Part 3:** Reverse derivation tree display (post-order traversal)
+- **Part 4:** Detailed LALR(1) parsing table in matrix format
+- **Part 5:** Comprehensive error diagnostics system
+- **Part 6:** Additional implementation details and analysis
 
 ---
 
@@ -213,12 +210,12 @@ byebro
 ```
 
 BEFORE (with original grammar):
-- ⚠ Shift/Reduce conflict in state 18
+- Shift/Reduce conflict in state 18
 - Parser uses default resolution (shift)
 - Behavior is implicit, not guaranteed by grammar
 
 AFTER (with conflict-free grammar):
-- ✓ No conflicts
+-  No conflicts
 - Grammar explicitly handles all if-elif-else combinations
 - Parser behavior is deterministic and guaranteed
 
@@ -331,7 +328,7 @@ Input:
   byebro
 
 Output:
-  ✗ Parsing failed with 1 error(s)
+  Parsing failed with 1 error(s)
   Syntax Error at line 2: expecting ; after variable declaration
 ```
 
@@ -346,7 +343,7 @@ Input:
   byebro
 
 Output:
-  ✗ Parsing failed with 1 error(s)
+  Parsing failed with 1 error(s)
   Syntax Error at line 4: expecting } to close block
 ```
 
@@ -360,7 +357,7 @@ Input:
   byebro
 
 Output:
-  ✗ Parsing failed with 1 error(s)
+   Parsing failed with 1 error(s)
   Syntax Error at line 2: unexpected token 'integer'
 ``
 
@@ -424,13 +421,13 @@ testcases/invalid/
 ```
 
 ### Key Features
-✓ **Conflict-Free Grammar** - No shift/reduce or reduce/reduce conflicts
-✓ **Correct Precedence** - Operator precedence and associativity properly defined
-✓ **Robust Parsing** - Handles complex nested structures
-✓ **Informative Errors** - Detailed diagnostics with line numbers
-✓ **Complete Language** - Supports all Brolang constructs
-✓ **Memory Efficient** - O(input size) space complexity
-✓ **Production Quality** - Error recovery and proper resource cleanup
+ **Conflict-Free Grammar** - No shift/reduce or reduce/reduce conflicts
+ **Correct Precedence** - Operator precedence and associativity properly defined
+ **Robust Parsing** - Handles complex nested structures
+ **Informative Errors** - Detailed diagnostics with line numbers
+ **Complete Language** - Supports all Brolang constructs
+ **Memory Efficient** - O(input size) space complexity
+ **Production Quality** - Error recovery and proper resource cleanup
 
 ---
 
@@ -443,6 +440,4 @@ The LALR(1) parser for Brolang is **complete, conflict-free, and fully functiona
 4. Outputs comprehensive LALR(1) parsing tables
 5. Provides detailed error diagnostics and recovery suggestions
 6. Implements all required features with production-quality code
-
-The implementation satisfies all assignment requirements and provides a solid foundation for a Brolang interpreter.
 

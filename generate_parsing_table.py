@@ -1,10 +1,7 @@
-#!/usr/bin/env python3
-"""
-Extract and format complete LALR(1) parsing table from Bison parser.output
-"""
+
 
 def create_parsing_table():
-    # Read and parse the parser.output file
+
     with open('brolang_parser.output', 'r') as f:
         lines = f.readlines()
 
@@ -12,7 +9,6 @@ def create_parsing_table():
     current_state = None
 
     for i, line in enumerate(lines):
-        # Check for state header
         if line.startswith('State '):
             current_state = int(line.split()[1])
             states[current_state] = {'actions': {}, 'gotos': {}, 'items': []}
@@ -20,14 +16,11 @@ def create_parsing_table():
         elif current_state is not None:
             line = line.rstrip()
 
-            # Parse shift actions
             if 'shift, and go to state' in line:
                 parts = line.split()
                 symbol = parts[0]
                 state_target = parts[-1]
                 states[current_state]['actions'][symbol] = f"s{state_target}"
-
-            # Parse reduce actions
             elif 'reduce using rule' in line:
                 parts = line.split()
                 symbol = parts[0]
@@ -38,21 +31,18 @@ def create_parsing_table():
                         break
                 if rule:
                     states[current_state]['actions'][symbol] = f"r{rule}"
-
-            # Parse accept
             elif ' accept' in line and 'go to' not in line:
                 parts = line.split()
                 symbol = parts[0]
                 states[current_state]['actions'][symbol] = 'acc'
 
-            # Parse goto (non-terminal transitions)
             elif 'go to state' in line and 'shift' not in line:
                 parts = line.split()
                 symbol = parts[0]
                 state_target = parts[-1]
                 states[current_state]['gotos'][symbol] = int(state_target)
 
-    # Extract all unique symbols
+
     all_actions = set()
     all_gotos = set()
 
@@ -64,7 +54,6 @@ def create_parsing_table():
     terminals.append('$end')
     non_terminals = sorted(all_gotos)
 
-    # Generate markdown
     md = []
     md.append("# PART 4: Complete LALR(1) Parsing Table for Brolang")
     md.append("")
@@ -81,13 +70,12 @@ def create_parsing_table():
     md.append("*Showing all 101 states (0-100) with selected terminals*")
     md.append("")
 
-    # Generate ACTION table in sections
+
     col_size = 15
     for start in range(0, len(terminals), col_size):
         end = min(start + col_size, len(terminals))
         cols = terminals[start:end]
 
-        # Header
         md.append(f"### ACTION Table Part {start // col_size + 1}")
         md.append("")
         header = "| State |"
@@ -96,13 +84,13 @@ def create_parsing_table():
             header += f" {col_str:^12} |"
         md.append(header)
 
-        # Separator
+
         sep = "|-------|"
         for _ in cols:
             sep += "--------------|"
         md.append(sep)
 
-        # Data rows
+
         for state_num in sorted(states.keys()):
             row = f"| {state_num:5} |"
             state_info = states[state_num]
@@ -118,7 +106,6 @@ def create_parsing_table():
     md.append("## Section 2: GOTO Table (Non-Terminal Transitions)")
     md.append("")
 
-    # Generate GOTO table
     col_size = 10
     for start in range(0, len(non_terminals), col_size):
         end = min(start + col_size, len(non_terminals))
@@ -127,19 +114,19 @@ def create_parsing_table():
         md.append(f"### GOTO Table Part {start // col_size + 1}")
         md.append("")
 
-        # Header
+
         header = "| State |"
         for col in cols:
             header += f" {col:^10} |"
         md.append(header)
 
-        # Separator
+
         sep = "|-------|"
         for _ in cols:
             sep += "------------|"
         md.append(sep)
 
-        # Data rows
+
         for state_num in sorted(states.keys()):
             row = f"| {state_num:5} |"
             state_info = states[state_num]

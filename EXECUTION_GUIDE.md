@@ -221,18 +221,6 @@ A: Use: `bison -v brolang_parser.y && cat brolang_parser.output`
 
 ---
 
-## Summary of Assignment Completion
 
-✓ **Part 1 (10 marks):** LALR(1) automaton with 26 states, explicit conflict locations
-✓ **Part 2 (10 marks):** Complete conflict analysis + grammar fixes + before/after examples
-✓ **Part 3 (2.5 marks):** Reverse derivation tree (post-order traversal)
-✓ **Part 4 (2.5 marks):** Full parsing table in matrix format with rules
-✓ **Part 5 (3 marks):** Comprehensive error diagnostics with 5+ error categories
-✓ **Part 6 (2 marks):** Architecture details, performance analysis, test suite
 
-**Total: 30 marks (100%) + potential bonus for excellence**
-
----
-
-Generated: March 31, 2026
 Group: Rachit Mehta (23110261), Luv Agarwal (23110189), Prateek Takshak (23110256)
